@@ -1,0 +1,35 @@
+<%-include("./partials/head.ejs") %>
+<%-include("./partials/nav.ejs") %>
+<main>
+<h3>Welcome</h3>
+<div class="alltodos">
+<% if(todos !=''){%>
+        <% todos.forEach((todo) => { %>
+            <div class="todos">
+                <div class="list">
+                <input type="checkbox" name="checked" id="checked">
+            <ul>
+        <li><%= todo.todo%></li>
+    </ul>
+</div>
+        <div class="actions">
+            <form action="/edit/<%= todo._id %>" method="get">
+                <input type="submit" value="Edit">
+            </form>
+            <form action="/delete/<%= todo._id %>" method="post">
+                <input type="submit" value="Delete">
+            </form>
+        </div>
+    </div>
+        <% })%>
+  
+<%}else{ %>
+    <h3>No Todos found!</h3>
+    <h3>To add Todos click: <a href="/add">Here</a></h3>
+<%}%>
+</div>
+
+</main>
+
+
+<%-include("./partials/footer.ejs") %>

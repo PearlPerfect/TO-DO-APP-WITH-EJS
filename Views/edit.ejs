@@ -1,0 +1,16 @@
+<%-include("./partials/head.ejs") %>
+<%-include("./partials/nav.ejs") %>
+<div class="form">
+    <h1 id="add">Add You todos</h1>
+    <form action="/edit/<%= todo._id %>" method="post">
+        <label for="todo">Add Todo:</label>
+        <input type="text" name="todo" placeholder="Enter Your Todo" value="<%= todo?.todo%>" >
+        <p class="err"><%= err %></p>
+        <input type="submit" value="Add Todo" class="submitBtn">
+    </form>
+</div>
+
+
+
+
+<%-include("./partials/footer.ejs") %>
